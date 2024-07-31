@@ -5,17 +5,22 @@
 
 @font-face {
   font-family: "TTNorms-regular";
-  src: url(assets/font/tt-norms-pro/TT\ Norms\ Pro\ Regular.otf);
+  src: url("assets/font/TTNorms-Regular.woff2");
+}
+
+@font-face {
+  font-family: "TTNorms-medium";
+  src: url("assets/font/TTNorms-Medium.woff2");
 }
 
 @font-face {
   font-family: "TTNorms-bold";
-  src: url(assets/font/tt-norms-pro/TT\ Norms\ Pro\ Bold.otf);
+  src: url("assets/font/TTNorms-Bold.woff2");
 }
 
 @font-face {
   font-family: "TTNorms-extrabold";
-  src: url(assets/font/tt-norms-pro/TT\ Norms\ Pro\ ExtraBold.otf);
+  src: url("assets/font/TTNorms-ExtraBold.woff2");
 }
 
 :root {
@@ -25,6 +30,7 @@
   --header-login-section-button-height: 32px;
   --font-ttnorms-bold: TTNorms-bold;
   --font-ttnorms-regular: TTNorms-regular;
+  --font-ttnorms-medium: TTNorms-medium;
   --font-ttnorms-extrabold: TTNorms-extrabold;
   --button-border-radius: 20px;
 }
@@ -34,7 +40,6 @@ body {
 }
 
 header {
-  /* height: 100vh; */
   height: 550px;
   background-color: var(--text-primary-color);
   background-image: url(assets/pictures/hero_desktop.png);
@@ -51,41 +56,47 @@ header .container {
   font-weight: bolder;
 }
 
-.doordash-logo-name-top {
+.doordash-logo-name-top,
+.right-arrow-1184 {
   display: none;
 }
 
 .login-section {
-  height: var(--header-login-section-button-height);
   display: flex;
   justify-content: end;
   gap: 9px;
-  padding-top: 18px;
-  margin-right: 25px;
+  padding-top: 16px;
+  margin-right: 24px;
 }
 
 .navigation-buttons {
-  width: 170px;
   display: flex;
   justify-content: space-between;
+  gap: 8px;
 }
+
 .login-section button {
   height: var(--header-login-section-button-height);
   border: none;
-  font-size: 0.95em;
+  font-size: 16px;
   border-radius: var(--button-border-radius);
   font-weight: 700;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.01px;
+  line-height: 22px;
+  font-family: var(--font-ttnorms-bold);
+  padding: 0 12px;
+}
+
+.login-top {
+  letter-spacing: -0.01px;
 }
 
 .login-button-header {
-  width: 65px;
   color: black;
   background-color: white;
 }
 
 .open-app-button {
-  width: 95px;
   background-color: var(--button-primary-background-color);
   color: white;
 }
@@ -96,81 +107,64 @@ header .container {
 }
 
 .center-items-in-header {
-  /* background-color: yellow; */
-  height: 85%;
+  height: calc(100% - 96px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 0.72rem;
-  padding-top: 2px;
 }
 
 .doordash-logo-name {
   display: flex;
-  align-items: center;
-  /* justify-content: center; */
-  gap: 10px;
-  /* margin: 4px; */
+  gap: 8px;
+  margin: 20px 0;
+
+  height: 18px;
 }
 
 .location {
   display: none;
 }
 
-.doordash-name {
-  letter-spacing: 1.5px;
-  font-size: 1.1em;
-  font-family: var(--font-ttnorms-regular);
-}
-
 .center-items-content {
   font-family: var(--font-ttnorms-bold);
-  font-size: 1.35em;
+  font-size: 22px;
   width: 16em;
   text-align: center;
+  margin-bottom: 24px;
+  line-height: 28px;
 }
 
 .center-delivery-address-area {
   color: black;
   background-color: white;
-  /* max-width: ; */
-  height: 2.9em;
-  width: 280px;
-  /* border-radius: var(--button-border-radius); */
   border-radius: 30px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  /* margin: 12px;     */
+  padding: 4px;
+  padding-left: 16px;
 }
 
 .address-button {
-  /* background-color: red; */
-  height: 3.9em;
   display: flex;
   align-items: end;
-  padding-bottom: 3px;
 }
 
 .inner-button {
-  width: 99%;
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  height: inherit;
-  font-size: 0.86em;
   color: rgb(90, 90, 90);
   font-family: var(--font-ttnorms-regular);
-  font-weight: 600;
   letter-spacing: 1px;
 }
 
 .right-arrow {
-  font-size: 20px;
-  color: black;
-  font-weight: 900;
   cursor: pointer;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .search-icon,
@@ -181,62 +175,55 @@ header .container {
   align-items: center;
 }
 
+.search-icon {
+  margin-right: 12px;
+}
+
 .enter-delivery-address-area {
-  width: 12em;
+  font-size: 16px;
   height: 100%;
   display: flex;
   align-items: center;
-  padding-left: 5px;
-  justify-content: space-between;
+  margin-right: 12px;
+  font-weight: 500;
+  padding-bottom: 2px;
+  border: none;
+  font-family: var(--font-ttnorms-medium);
 }
 
-.center-delivery-address-area img {
-  width: 1.2em;
-}
-
-.login-button img {
-  width: 1em;
-  height: 1em;
+.login-button-parent-div {
+  margin-top: 16px;
 }
 
 .login-button {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 5.2em;
-  height: 2.1em;
+  min-height: 32px;
   color: black;
   background-color: white;
   border-radius: var(--button-border-radius);
-  font-size: 0.9em;
+  font-size: 14px;
   display: flex;
   align-items: center;
   cursor: pointer;
-  /* gap: 0.8rem; */
-  /* justify-content: space-around; */
-
+  padding: 0 12px;
   box-shadow: inset 0 0 0 1px #19191900, 0px 2px 8px 0px #19191933;
 }
 
-.login-btn-insider {
-  /* background-color: yellow; */
-  width: 80%;
-  height: inherit;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+.login-text {
+  margin-left: 4px;
+  letter-spacing: -0.01px;
+  font-family: var(--font-ttnorms-bold);
 }
 
-.user-logo img {
-  width: 17px;
-  height: 19px;
+.login-btn-insider {
+  display: flex;
+  align-items: center;
 }
 
 .login-text .signin {
   display: none;
 }
-
-/* --------------- Menu section --------------- */
 
 .inner-menu-container {
   display: flex;
@@ -244,28 +231,34 @@ header .container {
 }
 
 .app-from-playstore {
-  /* width: 335px; */
   width: 360px;
-  height: 148px;
-  /* max-width: 400px; */
-  /* height: 148px; */
   background-color: rgb(247, 247, 247);
-  border: 1px solid rgb(231, 231, 231);
+  border: 1px solid #f1f1f1ff;
   border-radius: 16px;
   margin: 20px 20px 0px;
   padding: 20px;
   box-sizing: border-box;
 }
+
 .playstore-contents {
   width: 100%;
-  height: 100%;
   display: flex;
 }
 
 .playstore-detail-area {
   box-sizing: border-box;
-  width: 177.312px;
-  height: 106px;
+  display: flex;
+  flex-direction: column;
+}
+
+.playstore-img {
+  height: 18px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.playstore-img img {
+  margin-top: 1px;
 }
 
 .app-icon {
@@ -273,9 +266,8 @@ header .container {
   width: 60px;
   height: 60px;
   margin-right: 8px;
-  padding: 8px;
-  border-radius: 16px;
-  border: 1px solid rgb(231, 231, 231);
+  border-radius: 12px;
+  border: 1px solid #f1f1f1ff;
   background-color: white;
   box-sizing: border-box;
   display: flex;
@@ -283,30 +275,29 @@ header .container {
   align-items: center;
 }
 .app-icon img {
-  width: 33px;
-  height: 33px;
+  margin-top: -2px;
+  margin-left: -2px;
 }
+
 .app-name {
-  line-height: 22px;
   margin-bottom: 4px;
   font-size: 18px;
   font-family: var(--font-ttnorms-bold);
-  letter-spacing: -0.04ch;
+  letter-spacing: -0.01px;
 }
 
 .app-description {
-  line-height: 28px;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
   letter-spacing: 0px;
+  font-family: var(--font-ttnorms-medium);
   font-size: 14px;
   font-weight: 500;
-  color: rgb(118, 118, 118);
+  color: rgb(96, 96, 96);
   display: block;
 }
 
 .playstore-detail-area button {
   position: relative;
-  max-width: 100%;
   min-height: 32px;
   display: inline-flex;
   background-color: var(--button-primary-background-color);
@@ -314,19 +305,19 @@ header .container {
   align-items: center;
   justify-content: center;
   justify-items: center;
-  width: 125px;
+  width: fit-content;
+  padding: 0 12px;
   border: none;
 }
 
 .get-app-button-insider {
   max-width: 100%;
-  width: 95%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   color: rgb(255, 255, 255);
-  font-size: 1.05em;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.05px;
   line-height: 16px;
@@ -336,9 +327,13 @@ header .container {
   text-overflow: ellipsis;
 }
 
-.get-app-btn-right-arrow {
-  font-weight: 900;
-  box-sizing: border-box;
+.get-app-btn-text {
+  font-family: var(--font-ttnorms-bold);
+  letter-spacing: -0.01px;
+}
+
+img.get-app-btn-right-arrow {
+  margin-left: 4px;
 }
 
 .menu-dasher-section {
@@ -349,16 +344,13 @@ header .container {
 }
 
 .dasher-section {
-  /* max-width: fit-content; */
   padding: 8px 8px;
   display: flex;
   justify-content: center;
   flex-direction: column;
   margin: 40px 0;
   box-sizing: border-box;
-  /* max-width: 768px; */
   max-width: -5.58em;
-  /* background-color: violet; */
 }
 
 .dasher-marbles-insider {
@@ -367,7 +359,6 @@ header .container {
   height: 100%;
   flex-direction: column;
   box-sizing: border-box;
-  /* background-color: beige; */
 }
 
 .dasher-marble {
@@ -403,7 +394,7 @@ header .container {
 }
 
 .dasher-marble-heading {
-  color: #191919ff;
+  color: #191919;
   font-family: var(--font-ttnorms-bold);
   font-size: 32px;
   font-weight: 700;
@@ -415,11 +406,11 @@ header .container {
 }
 
 .dasher-marble-description {
-  font-family: var(--font-ttnorms-regular);
+  font-family: var(--font-ttnorms-medium);
   margin-top: 0px;
   color: #191919ff;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 24px;
   letter-spacing: -0.01px;
   text-align: left;
@@ -440,14 +431,11 @@ header .container {
   font-size: 14px;
   line-height: 20px;
   letter-spacing: -0.01px;
-  display: block;
   cursor: pointer;
 }
 
 .dasher-marble-arrow {
-  font-size: 15px;
-  font-family: var(--font-ttnorms-extrabold);
-  font-weight: 900;
+  margin-left: 4px;
 }
 
 .main-container {
@@ -508,7 +496,7 @@ header .container {
 
 .main-marble-description {
   margin-top: 10px;
-  font-family: var(--font-ttnorms-regular);
+  font-family: var(--font-ttnorms-medium);
   font-size: 14px;
   letter-spacing: -0.01px;
   font-weight: 500;
@@ -516,7 +504,6 @@ header .container {
 }
 
 .main-marble-button {
-  /* position: relative; */
   margin-top: 20px;
   box-sizing: border-box;
 }
@@ -527,7 +514,7 @@ header .container {
   margin: 0px;
   padding: 0px;
   min-height: 32px;
-  width: 130px;
+  padding: 0 12px;
   border: none;
   border-radius: 100px;
 }
@@ -537,9 +524,10 @@ header .container {
 }
 
 .main-marble-button-text {
-  width: 100%;
   color: white;
   font-family: var(--font-ttnorms-bold);
+  font-size: 14px;
+  font-weight: 700;
 }
 
 .main-marble-2 {
@@ -547,28 +535,21 @@ header .container {
   padding-top: 320px;
   display: flex;
   flex-direction: column;
-  /* padding: 20px; */
   min-width: 90%;
   align-items: center;
   box-sizing: border-box;
   margin-bottom: 0px;
 }
 
-.main-marble-2 .main-marble-description {
-  font-family: var(--font-ttnorms-regular);
-  font-weight: 500;
-}
-
-.main-marble-2 .main-marble-button button {
-  width: 113px;
-}
 .main-marble-2 .main-marble-button-text {
   width: 100%;
 }
+
 #grocery-section {
   height: 100%;
   display: block;
 }
+
 #grocery-section .section-grocery {
   width: 100%;
   height: 350px;
@@ -578,6 +559,7 @@ header .container {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 section .section-grocery-insider {
   width: 100%;
   height: 100%;
@@ -587,20 +569,18 @@ section .section-grocery-insider {
 }
 
 .section-grocery-contents {
-  /* background-color: yellow; */
   height: fit-content;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
   place-content: center;
   max-width: 550px;
   margin: auto 0 auto 0;
   color: white;
-  /* padding: 1px; */
   text-align: center;
   letter-spacing: -0.01px;
 }
+
 .grocery-heading {
   font-family: var(--font-ttnorms-bold);
   font-size: 24px;
@@ -609,48 +589,58 @@ section .section-grocery-insider {
   line-height: 28px;
   box-sizing: border-box;
 }
+
 .grocery-sub-heading {
   font-family: var(--font-ttnorms-bold);
   font-size: 18px;
   line-height: 22px;
   margin-top: 10px;
 }
+
 .grocery-description {
   font-size: 14px;
   margin-top: 10px;
   line-height: 20px;
-  font-family: var(--font-ttnorms-regular);
-  font-weight: 600;
+  font-family: var(--font-ttnorms-medium);
+  font-weight: 500;
   padding: 0px;
   letter-spacing: -0.01px;
-  width: 90%;
 }
+
 .grocery-button {
   margin-top: 20px;
 }
+
 .grocery-button button {
   background-color: var(--button-primary-background-color);
   font-family: var(--font-ttnorms-bold);
+  font-weight: 500;
   color: white;
   border: none;
-  width: 120px;
-  height: 30px;
+  font-size: 14px;
+  padding: 0 12px;
+  min-height: 32px;
   border-radius: var(--button-border-radius);
 }
 
+.grocery-button-text {
+  letter-spacing: -0.01px;
+}
+
 .convenience-section-container {
-  /* font-size: 24px; */
   letter-spacing: 0.04px;
   padding: 0px;
 }
+
 .convenience-section-container .main-marble-button button {
-  width: 90px;
   font-size: 14px;
 }
+
 #convenience-section {
   display: block;
   height: auto;
 }
+
 .convenience-marble {
   margin-bottom: 0px;
 }
@@ -663,6 +653,7 @@ section .section-grocery-insider {
   width: 100%;
   box-sizing: border-box;
 }
+
 .slidebar-heading {
   font-family: var(--font-ttnorms-bold);
   text-align: center;
@@ -672,11 +663,13 @@ section .section-grocery-insider {
   line-height: 28px;
   letter-spacing: -0.01px;
 }
+
 .slidebar-marble-section {
   display: flex;
   background-color: rgb(254, 241, 238);
   box-sizing: border-box;
 }
+
 .slidebar-marble-section-insider {
   display: flex;
   flex-direction: row;
@@ -685,6 +678,7 @@ section .section-grocery-insider {
   scrollbar-width: none;
   box-sizing: border-box;
 }
+
 .slidebar-marble {
   margin-left: 5%;
   margin-right: -10%;
@@ -695,19 +689,23 @@ section .section-grocery-insider {
   align-items: center;
   box-sizing: border-box;
 }
+
 .slidebar-marble-image {
   width: 100%;
   box-sizing: border-box;
 }
+
 .slidebar-marble-image img {
   width: 100%;
   height: 180px;
   object-fit: cover;
   box-sizing: border-box;
 }
+
 .slidebar-desktop-image {
   display: none;
 }
+
 .slidebar-marble-contents {
   text-align: center;
   align-items: center;
@@ -715,6 +713,7 @@ section .section-grocery-insider {
   flex-direction: column;
   box-sizing: border-box;
 }
+
 .slidebar-marble-heading {
   text-align: center;
   max-width: 90%;
@@ -725,7 +724,9 @@ section .section-grocery-insider {
   line-height: 28px;
   letter-spacing: -0.01px;
 }
+
 .slidebar-marble-description {
+  font-family: var(--font-ttnorms-medium);
   text-align: center;
   margin-top: 10px;
   font-size: 14px;
@@ -734,10 +735,12 @@ section .section-grocery-insider {
   letter-spacing: -0.01px;
   box-sizing: border-box;
 }
+
 .slidebar-marble-button {
   margin-top: 20px;
   box-sizing: border-box;
 }
+
 .slidebar-marble-button button {
   position: relative;
   max-width: 100%;
@@ -752,123 +755,152 @@ section .section-grocery-insider {
   background-color: var(--button-primary-background-color);
   color: white;
 }
+
 .slidebar-marble-button-text {
   font-size: 14px;
   font-weight: 700;
-  /* line-height: 20px; */
   letter-spacing: -0.01px;
   box-sizing: border-box;
-  padding: 10px;
+  padding: 0 12px;
+  font-family: var(--font-ttnorms-bold);
 }
+
 .slidebar-marble-remarks {
   margin-top: 12px;
   font-family: var(--font-ttnorms-bold);
   font-size: 12px;
 }
+
 .slidebar-marble-section div:nth-child(4) {
   margin-right: 5%;
 }
+
 .signup-dasher {
   background-color: white;
 }
+
 #top-cities-bottom-section {
   width: 100%;
   padding: 48px 0px;
   display: flex;
   justify-content: center;
 }
+
 .top-cities-bottom-section-container {
   width: 100%;
   height: 100%;
 }
+
 .bottom-heading-section {
   width: 100%;
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
 }
+
 .bottom-heading {
   font-family: var(--font-ttnorms-bold);
   font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  line-height: 22px;
 }
+
 .bottom-cities-cuisines-section {
   width: 100%;
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
   margin-bottom: 20px;
-  border-bottom: 0.01px solid rgb(230, 227, 227);
-  /* background-color: rgb(162, 235, 162); */
 }
+
 .content-box {
   width: 100%;
   text-align: center;
-  padding: 10px;
+  padding: 8px 10px;
+  display: flex;
+  justify-content: center;
+  border-bottom: 2px solid #f1f1f1ff;
 }
+
 .content-box-text {
-  font-family: var(--font-ttnorms-regular);
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-family: var(--font-ttnorms-medium);
   font-size: 16px;
-  color: rgb(121, 120, 120);
+  color: rgb(73, 73, 73);
+  line-height: 22px;
   letter-spacing: -0.01px;
-  font-weight: 700;
-  line-height: 16px;
+  font-weight: 500;
+  line-height: 22px;
 }
+
 .bottom-cities-cuisines-section div:nth-child(1) {
-  border-bottom: 2px solid black;
+  border-bottom: 3px solid #606060ff;
+  padding: 7.5px 10px;
 }
+
 .bottom-cities-cuisines-section div:nth-child(1) .content-box-text {
   font-family: var(--font-ttnorms-bold);
   color: black;
 }
+
 .cities-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   text-align: center;
 }
+
 .city-list-box {
   padding: 10px;
+  height: 40px;
+  box-sizing: border-box;
 }
+
 .city-list-box:hover {
   background-color: rgb(247, 245, 245);
 }
+
 .city-name {
-  font-family: var(--font-ttnorms-regular);
-  font-weight: 600;
-  color: rgb(91, 91, 91);
+  font-family: var(--font-ttnorms-medium);
+  font-weight: 500;
+  color: rgb(73, 73, 73);
   padding: 14px 0px;
-  letter-spacing: 0.1px;
+  letter-spacing: -0.01px;
 }
+
 footer {
   background-color: #191919ff;
   color: rgb(208, 203, 203);
   display: flex;
   justify-content: center;
 }
+
 .footer-container {
   padding: 0px 20px;
   display: flex;
   width: 100%;
   max-width: 1160px;
-  /* justify-content: center; */
 }
+
 .footer-inner-container {
   width: 100%;
   max-width: 1120px;
   margin: auto;
-  /* display: block; */
   display: flex;
   flex-direction: column;
 }
+
 .footer-categories {
   padding: 32px 0px;
   width: 100%;
   margin: auto;
-  /* max-width: 1184px; */
 }
+
 .categories-heading {
   display: flex;
   font-family: var(--font-ttnorms-regular);
-  /* font-weight: 500; */
   font-weight: 500;
   justify-content: center;
   font-size: 16px;
@@ -877,37 +909,50 @@ footer {
   color: white;
   letter-spacing: 0px;
 }
+
+.categories-heading-text {
+  font-family: var(--font-ttnorms-medium);
+  font-weight: 500;
+  letter-spacing: -0.01px;
+  color: #ffffff;
+}
+
 .categories-list {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   justify-content: space-between;
   text-align: center;
   gap: 12px;
 }
+
 .categories-list-box {
   margin-top: 8px;
 }
+
 .categories-name {
-  font-family: var(--font-ttnorms-regular);
+  font-family: var(--font-ttnorms-medium);
+  color: rgb(196, 196, 196);
+  font-weight: 500;
+  letter-spacing: -0.01px;
   font-size: 14px;
   line-height: 20px;
-  /* font-weight: 100; */
-  letter-spacing: 0px;
 }
+
 .categories-name:hover {
   color: white;
   text-decoration: underline;
   cursor: pointer;
 }
+
 .footer-about-company-section {
   display: grid;
   grid-template-rows: minmax(2);
 }
+
 .footer-about-us-section {
   grid-row: 2/3;
-  /* margin-bottom: 12px; */
 }
+
 .download-app-section {
   grid-row: 1/2;
   height: fit-content;
@@ -917,6 +962,7 @@ footer {
   align-items: center;
   padding-top: 32px;
 }
+
 .footer-know-us-contents {
   display: flex;
   flex-direction: column;
@@ -927,6 +973,7 @@ footer {
   padding-top: 32px;
   margin-bottom: 12px;
 }
+
 .abxy {
   margin-bottom: 0px;
 }
@@ -936,11 +983,18 @@ footer {
   width: fit-content;
   border-radius: 10px;
   margin-bottom: 0px;
-  padding: 0px 8px 0px 8px;
+  padding: 2px 8px;
 }
+
+.appstore-logo {
+  display: flex;
+  height: 100%;
+}
+
 .download-app-section div:nth-child(2) {
-  margin-top: 16px;
+  margin-top: 12px;
 }
+
 .end-footer {
   display: flex;
   flex-direction: column-reverse;
@@ -951,6 +1005,7 @@ footer {
   box-sizing: border-box;
   justify-content: center;
 }
+
 .end-footer-terms-service {
   display: flex;
   margin-top: 12px;
@@ -959,15 +1014,26 @@ footer {
   align-items: center;
   box-sizing: border-box;
 }
+
 .end-footer-terms-box {
   margin-left: 16px;
   height: 18px;
 }
+
+.end-footer-text {
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 500;
+  letter-spacing: -0.01px;
+  font-family: var(--font-ttnorms-medium);
+}
+
 .end-footer-text:hover {
   color: white;
   text-decoration: underline;
   cursor: pointer;
 }
+
 .final:hover {
   cursor: default;
   color: unset;
@@ -977,35 +1043,74 @@ footer {
 .end-footer-language-country {
   padding: 12px;
 }
+
 .end-footer-drop-down-parent {
   display: flex;
   justify-content: center;
   min-height: 32px;
 }
+
 .end-footer-dropdown-content {
   background-color: white;
   color: black;
   font-weight: 600;
   display: flex;
   flex-direction: row;
-  justify-content: center;
   align-items: center;
   width: fit-content;
   padding: 4px 12px;
   border-radius: 16px;
-  width: 150px;
+  overflow: hidden;
   height: 32px;
   box-sizing: border-box;
-  justify-content: space-between;
+  position: relative;
 }
-.language-section {
+
+.earth-icon {
+  margin-right: 8px;
   display: flex;
   align-items: center;
 }
+
+.language-section {
+  display: flex;
+  align-items: center;
+  width: 94px;
+  font-size: 14px;
+  letter-spacing: 0.1px;
+}
+
+.lang-dropdown {
+  border: none;
+  height: 20px;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.01px;
+  font-weight: 500;
+  appearance: none;
+}
+
+.end-footer-down-arrow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #fff;
+  height: 100%;
+  display: flex;
+  align-items: end;
+  margin-right: 12px;
+}
+
+.end-footer-down-arrow img {
+  margin-bottom: 2px;
+}
+
 .end-footer-social-media-parent {
   display: flex;
   justify-content: center;
+  height: 28px;
 }
+
 .end-footer-social-media {
   min-width: fit-content;
   max-width: 96px;
@@ -1013,13 +1118,12 @@ footer {
   display: flex;
   justify-content: space-between;
 }
+
 .end-footer-social-logo {
   width: fit-content;
   height: initial;
 }
-.end-footer-social-logo svg:hover {
-  fill: yellow;
-}
+
 .end-footer-logo-parent {
   margin-left: 0px;
 }
@@ -1036,134 +1140,142 @@ footer {
     background-size: auto inherit;
     background-position-y: 0.07em;
   }
+
   .signin-top,
   .signup-top,
   .doordash-logo-name-top {
     display: contents;
   }
+
   .login-top,
   .openapp-top,
   .doordash-logo-name {
     display: none;
   }
+
   .doordash-logo-name-top {
     width: 100%;
     height: 100%;
   }
+
   .doordash-logo-name-top .doordash-name {
     display: flex;
-    align-items: center;
+    margin-bottom: 2px;
     font-family: var(--font-ttnorms-regular);
     font-size: 1.05em;
-    letter-spacing: 2.5px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .doordash-logo-name-top .doordash-name .logo svg {
     width: 32px;
     height: 18px;
   }
+
   .doordash-logo-name-svg {
     margin-left: 8px;
     margin-bottom: -4px;
   }
-  .login-section button {
-    height: 38px;
-    font-size: 1.1em;
+
+  .login-button-header,
+  .open-app-button {
+    min-height: 40px;
   }
+
+  .signin-top,
+  .signup-top {
+    font-size: 18px;
+  }
+
   .login-button-header {
-    width: 79px;
     color: white;
     background-color: var(--button-primary-background-color);
   }
+
   .open-app-button {
-    width: 85px;
     background-color: white;
     color: black;
   }
+
   .navigation-section {
     display: flex;
     align-items: center;
     justify-content: end;
   }
+
   .login-section {
-    width: 54%;
+    margin-left: 24px;
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    position: relative;
+    margin-bottom: 10px;
   }
+
   .navigation-buttons {
-    width: 170px;
     display: flex;
-    justify-content: space-between;
   }
+
   .location {
     display: inline-flex;
   }
+
   .search {
     display: none;
   }
+
   .center-delivery-address-area {
-    width: 410px;
-    height: 3.5em;
+    padding: 8px;
+    padding-left: 20px;
   }
-  .inner-button {
-    width: 94%;
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-  }
-  .inner-button .right-arrow {
-    grid-column: 7/8;
-    font-size: 1.5em;
-  }
+
   .login-text .login {
     display: none;
   }
+
   .login-text .signin {
     display: contents;
   }
+
   .login-text .signin .saved-address {
     display: none;
   }
-  .login-button {
-    width: 6em;
-  }
+
   .center-items-in-header {
-    height: 95%;
-    gap: 0.4em;
+    height: calc(100% - 66px);
   }
+
   .center-items-content {
-    font-size: 1.4em;
+    font-size: 22px;
   }
-  .inner-button .search-icon img,
-  .right-arrow img {
-    width: 20px;
+
+  .enter-delivery-address-area {
+    width: 292px;
   }
-  .address-button {
-    height: 5.2em;
-    display: grid;
-    grid-template-rows: repeat(15, 1fr);
-    padding-bottom: 0px;
-  }
-  .address-button .center-delivery-address-area {
-    grid-row: 1/14;
-  }
+
   .app-from-playstore {
     display: none;
   }
+
   .dasher-section {
     margin: 32px 0;
   }
+
   .dasher-image {
     margin-right: 64px;
     box-sizing: border-box;
   }
+
   .dasher-image img {
     height: 124px;
     width: 124px;
   }
+
   .mobile-img {
     display: none;
   }
+
   .main-marble {
     display: flex;
     flex-direction: row;
@@ -1174,15 +1286,17 @@ footer {
     box-sizing: border-box;
     padding: 20px;
   }
+
   .inner-main-marble {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    min-height: 504px;
     justify-content: center;
     gap: 60px;
     max-width: 1184px;
     box-sizing: border-box;
   }
+
   .main-marble-contents {
     max-width: 400px;
     margin-top: auto;
@@ -1192,6 +1306,7 @@ footer {
     display: flex;
     flex-direction: column;
   }
+
   .main-marble-heading {
     max-width: 90%;
     margin-top: 20px;
@@ -1201,108 +1316,125 @@ footer {
     letter-spacing: -0.01px;
     box-sizing: border-box;
   }
+
   .main-marble-sub-heading {
     margin-top: 20px;
     font-size: 20px;
     font-weight: 600;
     line-height: 24px;
   }
+
   .main-marble-description {
-    margin-top: 10px;
-    font-size: 16.5px;
+    margin-top: 20px;
+    font-size: 16px;
     font-weight: 500;
     line-height: 22px;
     letter-spacing: -0.01px;
     box-sizing: border-box;
   }
+
   .main-marble-button {
     margin-top: 30px;
     box-sizing: border-box;
   }
+
   .main-marble-button button {
     max-width: 100%;
-    width: 145px;
     height: 40px;
   }
+
   .main-marble-button-text {
     font-size: 16px;
     line-height: 22px;
     display: block;
   }
+
   .desktop-img {
     display: flex;
     width: 100%;
   }
+
   .main-img-desktop img {
     width: 100%;
     height: 500px;
     object-fit: cover;
     overflow: clip;
   }
+
   .main-marble-2 {
     padding-top: 80px;
   }
+
   .main-marble-2 .main-marble-description {
     margin-top: 20px;
   }
-  .main-marble-2 .main-marble-button button {
-    width: 125px;
-  }
 
   .convenience-marble {
-    margin-bottom: -30px;
+    margin-bottom: -40px;
   }
 
   #grocery-section {
     height: 600px;
   }
+
   #grocery-section .section-grocery {
     width: 100%;
     height: 100%;
   }
+
   .grocery-heading {
     font-size: 40px;
     line-height: 40px;
   }
+
   .grocery-sub-heading {
     font-size: 20px;
     margin-top: 20px;
+    line-height: 24px;
   }
+
   .grocery-description {
     font-size: 16px;
     line-height: 22px;
     font-weight: 500;
   }
+
   .grocery-button {
     margin-top: 30px;
   }
+
   .grocery-button button {
-    width: 140px;
-    height: 38px;
+    height: 40px;
   }
+
   .grocery-button-text {
     font-size: 16px;
+    line-height: 22px;
   }
+
   .convenience-marble {
     padding: 60px 20px 20px 20px;
   }
+
   .convenience-inner-marble {
     display: flex;
     flex-direction: row;
     gap: 60px;
+    min-height: 504px;
   }
+
   .convenience-section-container .main-marble-description {
     margin-top: 20px;
   }
+
   .convenience-section-container .main-marble-button {
     width: 100%;
   }
-  .convenience-section-container .main-marble-button button {
-    width: 100px;
-  }
+
   .slidebar-marble-heading-section {
     padding: 60px 20px 40px;
   }
+
   .slidebar-heading {
     text-align: center;
     max-width: 500px;
@@ -1311,18 +1443,16 @@ footer {
     line-height: 40px;
     letter-spacing: -0.01px;
   }
+
   .slidebar-marble-section {
     display: flex;
     justify-content: center;
     box-sizing: border-box;
-    /* display: grid;
-        grid-template-columns: repeat(2, 1fr); */
-    /* overflow-x: hidden; */
     max-height: 100%;
     height: 100%;
-    /* max-width: 1184px; */
     width: 100%;
   }
+
   .slidebar-marble-section-insider {
     display: flex;
     flex-direction: column;
@@ -1332,8 +1462,9 @@ footer {
     width: 100%;
     height: 100%;
     overflow-x: hidden;
-    max-width: 1189px;
+    max-width: 1184px;
   }
+
   .slidebar-marble {
     margin: 0px;
     min-width: 100%;
@@ -1346,76 +1477,104 @@ footer {
     box-sizing: border-box;
     padding: 20px;
     width: 50px;
-    /* justify-content: center; */
   }
+
   .slidebar-desktop-image {
     display: block;
     width: 100%;
-    height: 100%;
     box-sizing: border-box;
   }
+
+  .slidebar-marble-button button {
+    height: 40px;
+  }
+
+  .slidebar-marble-remarks {
+    margin-top: 20px;
+    font-size: 14px;
+    letter-spacing: -0.04px;
+    font-family: var(--font-ttnorms-medium);
+    line-height: 20px;
+  }
+
   .slidebar-desktop-image img {
     width: 100%;
-    /* height: 100%; */
-    /* object-fit: cover; */
-    object-fit: contain;
+    aspect-ratio: 1/1;
+    object-fit: cover;
     box-sizing: border-box;
   }
+
   .slidebar-marble-heading {
     font-size: 40px;
     line-height: 40px;
+    margin-top: 16px;
   }
+
+  .slidebar-marble-button {
+    margin-top: 30px;
+  }
+
   .slidebar-marble-description {
     font-size: 16px;
     margin-top: 20px;
     line-height: 22px;
   }
+
   .slidebar-marble-button-text {
     font-size: 16px;
     line-height: 22px;
   }
+
   .line-break::after {
     content: "\A";
     white-space: pre;
   }
+
   .bottom-heading {
     font-size: 32px;
+    line-height: 40px;
   }
+
   .cities-list {
     grid-template-columns: repeat(3, 1fr);
   }
+
   .categories-heading {
     justify-content: left;
   }
+
   .categories-list {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     text-align: left;
   }
+
   .footer-about-us-section {
-    /* display: grid;
-        text-align: left;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(1, 1fr); */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
   }
+
   .footer-about-us-section .categories-list-box {
     display: flex;
     justify-self: left;
   }
+
   .end-footer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: start;
   }
+
   .end-footer-drop-down-parent {
     padding: 0px 12px;
   }
+
   .footer-know-us {
     margin-bottom: 0px;
   }
+
   .end-footer-terms-service {
     margin-top: 0px;
   }
@@ -1427,49 +1586,88 @@ footer {
     font-size: 40px;
     letter-spacing: -0.03px;
     font-weight: 600;
+    line-height: 40px;
+  }
+
+  .enter-delivery-address-area {
+    padding-left: 1px;
+  }
+
+  .address-button .center-delivery-address-area {
+    margin-left: -2px;
   }
 }
 
 @media screen and (min-width: 960px) {
-  .doordash-logo-name-top .doordash-name {
-    font-size: 1.5em;
-    font-family: var(--font-ttnorms-bold);
+  .doordash-logo-name-top .doordash-name .logo img {
+    width: 42px;
+    height: 24px;
   }
-  .doordash-logo-name-svg svg {
+
+  .doordash-logo-name-top .doordash-name .doordash-logo-name-svg img {
     width: 155px;
     height: 18px;
   }
+
   .logo {
     margin-bottom: -9px;
     margin-right: 4px;
+    margin-left: 1px;
   }
+
   .doordash-logo-name-top .doordash-name .logo svg {
     width: 42px;
     height: 24px;
   }
+
   .login-text .signin .saved-address {
     display: contents;
   }
+
+  .login-section {
+    margin-bottom: 16px;
+  }
+
+  .center-items-in-header {
+    height: calc(100% - 72px);
+  }
+
+  .doordash-logo-name-top .doordash-name {
+    height: 24px;
+    margin-bottom: 0;
+  }
+
+  .address-button .center-delivery-address-area {
+    margin-left: 0;
+  }
+
+  .doordash-logo-name-svg {
+    align-items: center;
+    display: flex;
+    margin-bottom: 1px;
+  }
+
+  .enter-delivery-address-area {
+    padding-left: 0;
+  }
+
   .login-button {
-    width: 14em;
-    height: 32px;
     min-height: 32px;
     letter-spacing: 0.01px;
   }
+
   .login-btn-insider {
-    width: 90%;
     display: flex;
-    justify-content: space-between;
   }
+
   .cities-list {
     grid-template-columns: repeat(5, 1fr);
   }
+
   .footer-about-company-section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: none;
-    /* display: flex;
-        justify-content: space-between; */
   }
 
   .footer-about-us-section {
@@ -1481,6 +1679,7 @@ footer {
     display: flex;
     justify-content: space-between;
   }
+
   .download-app-section {
     grid-column: 2/3;
     grid-row: 1/2;
@@ -1488,28 +1687,49 @@ footer {
     flex-direction: column;
     align-items: end;
   }
+
   .appstore-section {
     margin-right: 0px;
     margin-top: 0px;
   }
+
   .download-app-section div:nth-child(2) {
-    margin-top: 16px;
+    margin-top: 12px;
+  }
+}
+
+@media screen and (min-width: 996px) {
+  .end-footer {
+    align-items: center;
+  }
+
+  .end-footer-social-media-parent {
+    margin-top: -4px;
   }
 }
 
 @media screen and (min-width: 1184px) {
+  .right-arrow-small {
+    display: none;
+  }
+
+  .right-arrow-1184 {
+    display: unset;
+  }
+
   .right-arrow {
     display: flex;
     align-items: center;
     background-color: var(--button-primary-background-color);
-    height: 70%;
     width: 40px;
     border-radius: 30px;
     color: white;
   }
+
   .menu-dasher-section {
     width: 100%;
   }
+
   .dasher-section {
     margin: 96px 0;
     flex-direction: row;
@@ -1518,58 +1738,62 @@ footer {
     padding: 12px 12px;
     box-sizing: border-box;
   }
+
   .dasher-marbles-insider {
     flex-direction: row;
     justify-content: center;
     width: 1080px;
     height: 420px;
   }
+
   .dasher-marble {
     flex-flow: column;
     width: 100%;
     min-width: 360px;
   }
+
   .dasher-image {
     display: flex;
     justify-content: center;
   }
+
   .dasher-image img {
     height: 154px;
     width: 154px;
   }
+
   .dasher-contents {
     min-height: 160px;
-    /* text-align: center; */
     justify-content: center;
     align-items: center;
     width: 250px;
     height: 194px;
   }
+
   .dasher-marble-heading {
     font-size: 32px;
     line-height: 40px;
     display: block;
     text-align: center;
   }
+
   .dasher-marble-description {
-    font-family: var(--font-ttnorms-regular);
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 24px;
-    letter-spacing: -0.01px;
     text-align: center;
-    box-sizing: border-box;
     margin-top: 8px;
   }
+
   .dasher-marble-button {
     justify-content: center;
     width: inherit;
     max-width: 250px;
     font-size: 18px;
+    line-height: 22px;
   }
+
   .dasher-marble-arrow {
     font-weight: 900;
   }
+
   .top-cities-bottom-section-container {
     max-width: 1130px;
   }
@@ -1580,11 +1804,3 @@ footer {
     background-position: center;
   }
 }
-
-@media screen and (min-width: 2560px) {
-  .login-section {
-    width: 53%;
-  }
-}
-
-/* 1475  lines till 07/06/2024 */
